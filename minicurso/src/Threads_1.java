@@ -3,9 +3,23 @@ public class Threads_1 {
         // Thread atual
         Thread t = Thread.currentThread();
         System.out.println(t.getName());
-        
+
+        MeuRunnable meuRunnable = new MeuRunnable();
+
         // Nova thread
-        Thread t1 = new Thread(new MeuRunnable());
+        Thread t1 = new Thread(meuRunnable);
+
+        // Runnable como função lambda
+        Thread t2 = new Thread(
+                () -> System.out.println(Thread.currentThread().getName()));
+        
+        // t2.start(); --> Vai lançar Exceção!
+
+        // Várias threads
+        Thread t3 = new Thread(meuRunnable);
+
         t1.start();
+        t2.start();
+        t3.start();
     }
 }
