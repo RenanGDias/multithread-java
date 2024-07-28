@@ -1,9 +1,12 @@
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ClassesAtomicas {
 
-    static AtomicInteger i = new AtomicInteger(-1);
-
+    // static AtomicInteger i = new AtomicInteger(-1);
+    // static AtomicBoolean b =  new AtomicBoolean(false);
+    static AtomicReference<Object> r =  new AtomicReference<>(new Object());
     public static void main(String[] args) {
         MeuRunnable Runnable = new MeuRunnable();
 
@@ -20,7 +23,9 @@ public class ClassesAtomicas {
 
         public void run() {
             String name = Thread.currentThread().getName();
-            System.out.println(name + ":" + i.incrementAndGet());
+            // System.out.println(name + ":" + i.incrementAndGet());
+            // System.out.println(name + ":" + b.compareAndExchange(false, true));
+            System.out.println(name + ":" + r.getAndSet(new Object()));
         }
     }
 }
