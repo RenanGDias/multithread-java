@@ -1,7 +1,10 @@
-public class MyThread extends Thread {
+package exemplo2;
+
+public class MyRun implements Runnable {
+
     private String message;
     
-    public MyThread(String m) {
+    public MyRun(String m) {
         message = m;
     }
     
@@ -10,4 +13,5 @@ public class MyThread extends Thread {
            System.out.println(message); 
         }
     }
+    
 }
