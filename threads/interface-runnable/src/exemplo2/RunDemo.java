@@ -8,6 +8,9 @@ public class RunDemo {
         r2 = new MyRun("segundo thread");
         t1 = new Thread(r1);
         t2 = new Thread(r2);
+        if (t1.isAlive()) {
+            System.out.println(t1.getName() + " está rodando");
+        }
         t1.start();
         t2.start();
     }
